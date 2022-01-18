@@ -39,10 +39,10 @@ def delete_note(id: int):
     return {'error': 'Note not found'}
 
 @app.put('/update/{id}', response_model=Note)
-def update_note(id: int, note: Note):
+def update_note(id: int, note_udt: Note):
     for note in notes:
         if note['id'] == id:
-            note['title'] = note.title
-            note['content'] = note.content
+            note['title'] = note_udt.title
+            note['content'] = note_udt.content
             return note;
     return {'error': 'Note not found'}

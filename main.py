@@ -1,6 +1,4 @@
-from ensurepip import version
 from typing import List
-from urllib import response
 from fastapi import FastAPI, status
 from typing import List
 from note import Note
@@ -13,7 +11,7 @@ notes : List[Note] = []
 def get_notes():
     return notes;
 
-@app.post('/create', response_model=Note)
+@app.post('/create/', response_model=Note)
 def create_note(note: Note):
     new_note = {
         'id': len(notes),
